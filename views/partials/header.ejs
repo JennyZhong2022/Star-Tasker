@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Browse tasks</title>
+  <title>Startasker</title>
 </head>
 <body>
   <nav>
@@ -31,7 +31,7 @@
       <!-- post-task -->
       <a href="/tasks/new" <%- title === 'Add Task' ? 'class="active"' : '' %>>POST A TASK</a>||||||
 
-      <!-- <a href="/tasks/my-reading-list" <%- title === 'My Read' ? 'class="active"' : '' %>>MY READING LIST</a>|||||| -->
+      <a href="/tasks/my-accept-list" <%- title === 'My Accept' ? 'class="active"' : '' %>>MY ACCEPTED TASK</a>||||||
       
       <a href="/logout">LOG OUT</a>
     <% } else { %>

@@ -1,8 +1,18 @@
 <%- include('../partials/header') %>
  <h1>tasks</h1>
  
+ <% if(showSearchForm ){ %>
+  <form action="/tasks/searched-tasks" method="GET">
+    <input type="search" name="title"  placeholder="Search for a task">
+     <button type="submit">Search</button>
+   </form>
+   <% } %>
  
- <!-- tasks.forEach  -->
+ 
+ <% if(titleSearch) { %>
+  <h2>Results for: <%= titleSearch %></h2>
+<% } %>
+
 
  <table>
   <thead>
@@ -12,15 +22,19 @@
     </tr>
   </thead>
   <tbody>
+    <%  if(tasks.length>0){%>
     <% tasks.forEach((task)=>{ %>
-    <tr>
-      <td><%= task.title %></td>
+   <tr>
+    <td><%= task.title %></td>
     <td><%= task.budget %></td>
     <td>
     <a href="/tasks/<%= task._id %>">Open</a>
     </td>
-  </tr>
+  </tr> 
   <%  }) %>
+  <% } else{%>
+   <tr> <td colspan="3">No Task</td></tr>
+   <%   }%>
     
   </tbody>
  </table>

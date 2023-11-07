@@ -13,6 +13,37 @@
   <div><%= task.image %></div>
   <div>Budget: </div>
   <div><%= task.budget %></div>
+
+
+  <div>
+    <% if(!task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id) ){  %>
+      <form action="/tasks/my-accept-list/<%= task._id %>" method="POST">
+       <button type="submit">Accept</button> </a>
+     <% }   %>
+    </form>
+    </div>
+
+   <div>
+ <!--  toggle with accept button  -->
+ <% if(task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){  %>
+      <form action="/tasks/my-accept-list/<%= task._id %>?_method=DELETE" method="POST">
+      <button type="submit">Cancel Accept</button>
+    </form>
+    <% }   %>
+   </div>
+  
+    <div>
+    <%  if(user?._id.equals(task.myPost)) 
+    {%>
+      <a href="/tasks/<%= task._id %>/edit"><button type="submit">Edit</button></a>
+
+      <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+   
+   <%  }%>
+  </div>
+
 </section>
 
 
