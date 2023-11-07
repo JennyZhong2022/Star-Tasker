@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<!-- enctype="multipart/form-data"  this is for uploading images -->
+<form action='/tasks' method="post" > 
+  <label>Title:</label>
+  <input type="text" name="title" required>
+
+  <label>Date:</label>
+  <input type="date" name="date" required> 
+
+  <label>Location: Later</label>
+  <!-- it is embedded data -->
+  <!-- <input type="text" name="location" required> -->
+
+  <label>Details:</label>
+  <textarea name="details" required></textarea> 
+
+  <label>Image:Later</label> 
+
+  <!-- <input type="file" name="image" accept="image/*">  -->
+
+  <label>Budget:</label>
+  <input type="number" name="budget" required> 
+
+  <button type="submit">Submit</button>
+</form>
+
+
+<%- include('../partials/footer') %>

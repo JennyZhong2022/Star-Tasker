@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+ <h1>tasks</h1>
+ 
+ 
+ <!-- tasks.forEach  -->
+
+ <table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>budget</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.forEach((task)=>{ %>
+    <tr>
+      <td><%= task.title %></td>
+    <td><%= task.budget %></td>
+    <td>
+    <a href="/tasks/<%= task._id %>">Open</a>
+    </td>
+  </tr>
+  <%  }) %>
+    
+  </tbody>
+ </table>
+  
+<%- include('../partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<section >
+  <div>Title: </div>
+  <div><%= task.title %></div>
+  <div>Date: </div>
+  <div><%= (new Date(task.date)).toLocaleDateString() %></div>
+  <div>Location: </div>
+  <div><%= task.location %></div>
+  <div>Details: </div>
+  <div><%= task.details %></div>
+  <div>Image: </div>
+  <div><%= task.image %></div>
+  <div>Budget: </div>
+  <div><%= task.budget %></div>
+</section>
+
+
+
+<%- include('../partials/footer') %>
