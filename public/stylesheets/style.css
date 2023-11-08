@@ -1,5 +1,11 @@
+html{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -16,4 +22,119 @@ a {
 
 .login img {
   height: 30px;
+}
+
+.navbar-nav {
+  display: flex;
+  width: 100%;  
+ justify-content: space-around; 
+  font-size:large;
+  font-weight:normal;
+font-family: 'Montserrat', sans-serif;} 
+
+
+h2{
+font-family: 'Montserrat', sans-serif;
+
+}
+.h1Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskTable div{
+  max-width: 760px;
+  width:100%;
+  margin: 0 auto;
+}
+
+
+  .taskShow {
+    padding-top: 2rem;
+    max-width: 80%; 
+    margin: auto; /* this will center the div horizontally */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    
+  }
+
+  /* This is to ensure that the card takes up the width of the taskShow div */
+  .card.mb-3 {
+    width: 100%; /* it will take the width provided by the taskShow container */
+    max-width: 740px; /* or any other max-width you prefer */
+    
+    margin: auto; /* to center it if it's smaller than the container */
+  }
+
+
+.search-container {
+  max-width: 400px; 
+  margin-left:auto; 
+}
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.btn-wide {
+  padding: 0.25rem 1.2rem;
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 2;
+ 
+}
+
+.questionContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.questionContainer form{
+  width: 70%;
+}
+
+.questionContainer button{
+  position: absolute;
+  /* Adjust as needed */
+  right: 300px
+}
+
+
+
+.img-full-height {
+  height: 100%; 
+  object-fit: cover; 
+}
+
+
+.row-equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.edit-delete-btns {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  z-index: 2; /* Ensures the buttons stay on top of other content */
+}
+
+.accept-cancel-btns{
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  z-index: 2; /* Ensures the buttons stay on top of other content */
 }

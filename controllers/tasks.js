@@ -85,7 +85,7 @@ const addAccept = async(req,res) => {
   }
   task.acceptedTasks.push(req.user._id);
   await task.save();
-  res.redirect('/tasks/my-accept-list');
+  res.redirect(`/tasks/${task._id}`);
 };
 
 const cancelAccept=async(req,res) => {
@@ -96,7 +96,7 @@ const cancelAccept=async(req,res) => {
   }
   task.acceptedTasks = task.acceptedTasks.filter(userId => !userId.equals(req.user._id));
   await task.save();
-  res.redirect('/tasks/my-accept-list');
+  res.redirect(`/tasks/${task._id}`);
 };
 
 const showAcceptList =async (req,res) => {

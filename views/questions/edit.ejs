@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+<form action="/questions/<%= question._id %>?_method=PUT" method="POST">
+  <textarea name="content"  cols="20" rows="2" ><%= question.content %></textarea>
+<br>
+  <button type="submit">Update</button>
+</form>
+
+<%- include('../partials/footer') %>

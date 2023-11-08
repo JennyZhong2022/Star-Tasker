@@ -1,42 +1,63 @@
 <%- include('../partials/header') %>
- <h1>tasks</h1>
  
+<br>
+
+  <div class="container-fluid">
  <% if(showSearchForm ){ %>
-  <form action="/tasks/searched-tasks" method="GET">
-    <input type="search" name="title"  placeholder="Search for a task">
-     <button type="submit">Search</button>
+  <div class="search-container">
+  <form  class="d-flex" role="search" action="/tasks/searched-tasks" method="GET">
+    <input class="form-control me-2" type="search" name="title"  placeholder="Search for a task" aria-label="Search" required>
+     <button class="btn btn-outline-success" type="submit">Search</button>
    </form>
+  </div>
    <% } %>
- 
- 
- <% if(titleSearch) { %>
-  <h2>Results for: <%= titleSearch %></h2>
-<% } %>
+  </div>
+
+ <br>
+ <br>
 
 
- <table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>budget</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%  if(tasks.length>0){%>
-    <% tasks.forEach((task)=>{ %>
-   <tr>
-    <td><%= task.title %></td>
-    <td><%= task.budget %></td>
-    <td>
-    <a href="/tasks/<%= task._id %>">Open</a>
-    </td>
-  </tr> 
-  <%  }) %>
-  <% } else{%>
-   <tr> <td colspan="3">No Task</td></tr>
-   <%   }%>
-    
-  </tbody>
- </table>
+
+  <div class="h1Container">
+    <h2>
+      <% if(showSearchForm) { %>
+        <%= titleSearch ? "Results for: " + titleSearch : "All Tasks" %>
+      <% } else { %>
+        My Post
+      <% } %>
+    </h2> 
+  </div>
+  
+
+<div class="taskTable">      
+
+<%  if(tasks.length>0){%>
+  <% tasks.forEach((task)=>{ %>
+    <div class="card w-75 mb-3">
+      <h5 class="card-header"><%= task.title %></h5>
+      <div class="card-body">
+        
+
+        <p class="card-text"><img src="/images/route.png" alt="location" width="30" height="24"><%= task.location %></p>
+        <p class="card-text"><p> <img src="/images/calendar.png" alt="date" width="30" height="24"> <%= task.date.toISOString().split('T')[0] %></p>
+        <a class="btn btn-primary btn-wide" href="/tasks/<%= task._id %>">Open</a>
+      </div>
+    </div>
+<%  }) %>
+<% } else{%>
+  <div class="card" >
+    <h5 class="card-header">No Task</h5>
+  </div>
+ <%   }%>
+
+
+
+
+
+
+</div>
+
+
+
   
 <%- include('../partials/footer') %>

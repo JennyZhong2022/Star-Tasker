@@ -1,48 +1,167 @@
 <%- include('../partials/header') %>
 
+
+
 <section >
-  <div>Title: </div>
-  <div><%= task.title %></div>
-  <div>Date: </div>
-  <div><%= (new Date(task.date)).toLocaleDateString() %></div>
-  <div>Location: </div>
-  <div><%= task.location %></div>
-  <div>Details: </div>
-  <div><%= task.details %></div>
-  <div>Image: </div>
-  <div><%= task.image %></div>
-  <div>Budget: </div>
-  <div><%= task.budget %></div>
 
 
-  <div>
-    <% if(!task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id) ){  %>
-      <form action="/tasks/my-accept-list/<%= task._id %>" method="POST">
-       <button type="submit">Accept</button> </a>
-     <% }   %>
-    </form>
+
+<div class="taskShow"> 
+<div class="card mb-3">
+  <div class="row g-0 row-equal-height">
+    <div class="col-md-4">
+      <img src="/images/kitchen.jpg" class="img-fluid img-full-height rounded-start" alt="kitchen">
     </div>
+    <div class="col-md-8">
+      <div class="edit-delete-btns">
+        <% if(user?._id.equals(task.myPost)) { %>
+          <form action="/tasks/<%= task._id %>/edit" method="get" style="display: inline;">
+            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+          </form>
+          <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger btn-sm" aria-label="Delete">Delete</button>
+          </form>
+        <% } %>
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><%= task.title %></h5>
+        <h6 class="card-title">
+          <img src="/images/cash.png" alt="dollar-symbol" width="30" height="24"> <%= task.budget %>
+        </h6>
+        <p>
+          <img src="/images/route.png" alt="location" width="30" height="24"> <%= task.location %>
+        </p>
+        <p class="card-title">
+          <img src="/images/calendar.png" alt="date" width="30" height="24"> <%= (new Date(task.date)).toLocaleDateString() %>
+        </p>
+        <p><%= task.details %></p>
+        <p class="card-text mt-auto">
+          <small class="text-body-secondary">Posted at: <%= task.createdAt.toLocaleDateString() %></small>
+        </p>
+      </div>
 
-   <div>
- <!--  toggle with accept button  -->
- <% if(task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){  %>
-      <form action="/tasks/my-accept-list/<%= task._id %>?_method=DELETE" method="POST">
-      <button type="submit">Cancel Accept</button>
-    </form>
-    <% }   %>
-   </div>
-  
-    <div>
-    <%  if(user?._id.equals(task.myPost)) 
-    {%>
-      <a href="/tasks/<%= task._id %>/edit"><button type="submit">Edit</button></a>
+      <div class="accept-cancel-btns">
+        <% if(!task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id) ){  %>
+          <form action="/tasks/my-accept-list/<%= task._id %>" method="POST">
+            <button type="submit" class="btn btn-primary btn-sm">Accept</button>
+          </form>
+        <% } %>
+        
+        <% if(task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){  %>
+          <form action="/tasks/my-accept-list/<%= task._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-secondary btn-sm">Cancel Accept</button>
+          </form>
+        <% } %>
+      </div>
 
-      <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-   
-   <%  }%>
+
+    </div>
   </div>
+</div>
+</div>  
+
+
+
+
+<!-- <div class="taskShow">
+  <div class="card mb-3">
+    <img src="/images/kitchen.jpg" class="card-img-top" alt="kitchen">
+    <div class="card-body">
+      <div class="btn-container">
+       
+        <% if(user?._id.equals(task.myPost)) { %>
+          <form action="/tasks/<%= task._id %>/edit" method="get">
+            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+          </form>
+          <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        <% } %>
+       
+        <% if(!task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){ %>
+          <form action="/tasks/my-accept-list/<%= task._id %>" method="POST">
+            <button type="submit" class="btn btn-primary btn-sm">Accept</button>
+          </form>
+        <% } %>
+        <% if(task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){ %>
+          <form action="/tasks/my-accept-list/<%= task._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-secondary btn-sm">Cancel Accept</button>
+          </form>
+        <% } %>
+      </div>
+      <h5 class="card-title"><%= task.title %></h5>
+      <p class="card-text"><%= task.details %></p>
+      <p class="card-text">
+        <small class="text-body-secondary">Posted at: <%= task.createdAt.toLocaleDateString() %></small>
+      </p>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="questionContainer">
+
+<%if(task.questions.length){  %>
+  <table>
+    <thead>
+    <tr>
+    <th>User</th>
+    <th>Date</th>
+    <th>Questions</th>      
+    </tr>     
+    </thead>
+    <tbody>
+     
+    <% task.questions.forEach(function(question) { %>
+        <tr>
+          <td class="review-user"><img alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" ><%= question.userName %></td>
+          <td><%= question.createdAt.toLocaleDateString() %></td>
+          <td><%= question.content %></td>
+
+          <td>
+            <% if (user?._id.equals(question.user)) { %>
+              <form action="/questions/<%= question._id %>/edit">
+                <button type="submit">Edit</button>
+              </form>
+            <% } %>
+          </td>
+
+          
+          <td>
+            <% if (user?._id.equals(question.user)) { %>
+              <form action="/questions/<%= question._id %>?_method=DELETE" method="POST">
+                <button type="submit">&times;</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table> 
+  <%}  %>
+
+</div>
+
+   
+   
+
+
+
+
+<div class="questionContainer">
+
+<form action="/tasks/<%= task._id %>/questions" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Questions</label>
+    <textarea class="form-control"  name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit"  class="btn btn-primary btn-question">Ask question</button>
+</form>
+</div>
+
+
+
 
 </section>
 
