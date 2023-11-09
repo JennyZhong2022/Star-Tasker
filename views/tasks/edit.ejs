@@ -1,32 +1,59 @@
 <%- include('../partials/header') %>
 <section>
-  <h1>Edit Task</h1>
-  <form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
-    <div>
-      <label>Title:</label>
-      <input type="text"  name="title" value="<%= task.title %>" required>
+
+
+
+  <div class="newEditContainer">
+  
+    <div class="h1Container"><h2>Edit Your Task</h2></div>
+  
+  <!-- enctype="multipart/form-data"  this is for uploading images -->
+  <form action="/tasks/<%= task._id %>?_method=PUT" method="POST" class="row g-3"   >
+
+   
+    <div class="col-md-6">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" value="<%= task.title %>"  required class="form-control" id="inputEmail4">
     </div>
 
-
-    <div>
-      <label>Date:</label>
-      <input type="date" name="date" value="<%= task.date.toISOString().split('T')[0] %>"  required> 
+    <div class="col-md-6">
+      <label  class="form-label">Date</label>
+      <input type="date" name="date" 
+      value="<%= task.date.toISOString().split('T')[0] %>"  
+      required class="form-control" id="inputPassword4">
     </div>
 
-    <div>
-      <label>details:</label>
-      <textarea  name="details"  required><%= task.details %></textarea> 
+   
+  
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input type="text" name="address" value="<%=task.address%>" required class="form-control" id="inputAddress" >
+    </div>
+   
+    <div class="mb-3">
+      <label class="form-label">Details</label>
+      <textarea name="details" required class="form-control" id="exampleFormControlTextarea1" rows="3"><%= task.details %></textarea>
     </div>
   
-    <div>
-    <label>Budget:</label>
-    <input type="number" name="budget" value="<%= task.budget %>" required> 
-   </div>
-
-    <div>
-      <button type="submit">Save Changes</button>
+    <!-- <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input name="image" class="form-control" type="file" id="formFileMultiple" multiple>
+    </div> -->
+  
+    <div class="col-12">
+      <label class="form-label">Budget </label>
+      <input type="number" name="budget" value="<%= task.budget %>" required class="form-control" id="inputAddress" placeholder="$">
+    </div>
+  
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
   </form>
-</section>
+  
+  </div>
+  
+  
+  <%- include('../partials/footer') %>
+  
 
-<%- include('../partials/footer') %>
+

@@ -2,7 +2,7 @@ const Task = require('../models/task');
 
 const index = async(req,res)=> {
   try {
-    const tasks = await Task.find({ myPost: req.user._id });
+    const tasks = await Task.find({ myPost: req.user._id }).sort({createdAt:-1});
     res.render('tasks/index', { title: 'My Task', titleSearch: req.query.title || '' ,showSearchForm: false,tasks });
   } catch (err) {
     console.log(err);
@@ -12,7 +12,7 @@ const index = async(req,res)=> {
 
 const allTasks = async (req, res) => {
 
-    const tasks = await Task.find({});
+    const tasks = await Task.find({}).sort({createdAt:-1});
     res.render('tasks/index', { title: 'All Tasks',titleSearch: req.query.title || '',showSearchForm: true,tasks });
 
 }

@@ -36,7 +36,8 @@
         <p class="card-title">
           <img src="/images/calendar.png" alt="date" width="30" height="24"> <%= (new Date(task.date)).toLocaleDateString() %>
         </p>
-        <p><%= task.details %></p>
+        <label class="card-title" for="task-details"><img src="/images/search.png" alt="date" width="30" height="24">Details: </label>
+        <pre><%= task.details %></pre>
         <p class="card-text mt-auto">
           <small class="text-body-secondary">Posted at: <%= task.createdAt.toLocaleDateString() %></small>
         </p>

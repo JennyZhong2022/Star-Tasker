@@ -152,7 +152,7 @@ font-family: 'Montserrat', sans-serif;
  width: 90%;
 }
 
-.newPostContainer{
+.newPostContainer,.newEditContainer {
   padding-top: 3rem;
   width: 55%;
   margin: 0 auto;
