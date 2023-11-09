@@ -1,29 +1,66 @@
 <%- include('../partials/header') %>
 
+<div class="newPostContainer">
+
+  <div class="h1Container"><h2>Post Your Post</h2></div>
+
 <!-- enctype="multipart/form-data"  this is for uploading images -->
-<form action='/tasks' method="post" > 
-  <label>Title:</label>
-  <input type="text" name="title" required>
+<form action='/tasks' method="post" class="row g-3"   >
+  <div class="col-md-6">
+    <label class="form-label">Title</label>
+    <input type="text" name="title" required class="form-control" id="inputEmail4">
+  </div>
 
-  <label>Date:</label>
-  <input type="date" name="date" required> 
+  <div class="col-md-6">
+    <label  class="form-label">Date</label>
+    <input type="date" name="date" required class="form-control" id="inputPassword4">
+  </div>
 
-   <!-- it is embedded data -->
-  <label>Location:</label>
-  <input type="text" name="location" required>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" name="address" required class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <!-- <div class="col-12">
+    <label for="inputAddress2" class="form-label">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div> -->
+   
+  <div class="mb-3">
+    <label class="form-label">Details</label>
+    <textarea name="details" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
 
-  <label>Details:</label>
-  <textarea name="details" required></textarea> 
+  <!-- <div class="mb-3">
+    <label class="form-label">Image</label>
+    <input name="image" class="form-control" type="file" id="formFileMultiple" multiple>
+  </div> -->
 
-  <label>Image:Later</label> 
+  <div class="col-12">
+    <label class="form-label">Budget </label>
+    <input type="number" name="budget" required class="form-control" id="inputAddress" placeholder="$">
+  </div>
 
-  <!-- <input type="file" name="image" accept="image/*">  -->
-
-  <label>Budget:</label>
-  <input type="number" name="budget" required> 
-
-  <button type="submit">Submit</button>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
+
+</div>
 
 
 <%- include('../partials/footer') %>

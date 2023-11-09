@@ -18,7 +18,7 @@ const allTasks = async (req, res) => {
 }
 
 const show = async (req,res) => {
-  const task = await Task.findById(req.params.id).populate('location').populate('questions')
+  const task = await Task.findById(req.params.id).populate('questions')
   
   res.render('tasks/show',{title: 'Task Details',task})
 }

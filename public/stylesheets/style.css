@@ -50,7 +50,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 
-  .taskShow {
+.taskShow {
     padding-top: 2rem;
     max-width: 80%; 
     margin: auto; /* this will center the div horizontally */
@@ -61,7 +61,7 @@ font-family: 'Montserrat', sans-serif;
   }
 
   /* This is to ensure that the card takes up the width of the taskShow div */
-  .card.mb-3 {
+.card.mb-3 {
     width: 100%; /* it will take the width provided by the taskShow container */
     max-width: 740px; /* or any other max-width you prefer */
     
@@ -145,8 +145,15 @@ font-family: 'Montserrat', sans-serif;
   height: 8rem;
   overflow-y: auto;
   /* Enables vertical scrollbar when needed */
+  background-color: rgb(247, 248, 249);
 }
 
 .card-text{
  width: 90%;
+}
+
+.newPostContainer{
+  padding-top: 3rem;
+  width: 55%;
+  margin: 0 auto;
 }

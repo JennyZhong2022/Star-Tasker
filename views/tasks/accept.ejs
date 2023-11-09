@@ -18,7 +18,7 @@
         <div class="card-body">
           
   
-          <p class="card-text"><img src="/images/route.png" alt="location" width="30" height="24"><%= task.location %></p>
+          <p class="card-text"><img src="/images/route.png" alt="address" width="30" height="24"><%= task.address %></p>
           <p class="card-text"><p> <img src="/images/calendar.png" alt="date" width="30" height="24"> <%= task.date.toISOString().split('T')[0] %></p>
           <a class="btn btn-primary btn-wide" href="/tasks/<%= task._id %>">Open</a>
         </div>

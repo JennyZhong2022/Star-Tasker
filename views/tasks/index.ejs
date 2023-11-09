@@ -13,9 +13,9 @@
    <% } %>
   </div>
 
- <br>
- <br>
 
+ <br>
+ <br>
 
 
   <div class="h1Container">
@@ -30,15 +30,12 @@
   
 
 <div class="taskTable">      
-
 <%  if(tasks.length>0){%>
   <% tasks.forEach((task)=>{ %>
     <div class="card w-75 mb-3">
       <h5 class="card-header"><%= task.title %></h5>
       <div class="card-body">
-        
-
-        <p class="card-text"><img src="/images/route.png" alt="location" width="30" height="24"><%= task.location %></p>
+        <p class="card-text"><img src="/images/route.png" alt="address" width="30" height="24"><%= task.address %></p>
         <p class="card-text"><p> <img src="/images/calendar.png" alt="date" width="30" height="24"> <%= task.date.toISOString().split('T')[0] %></p>
         <a class="btn btn-primary btn-wide" href="/tasks/<%= task._id %>">Open</a>
       </div>
@@ -49,12 +46,6 @@
     <h5 class="card-header">No Task</h5>
   </div>
  <%   }%>
-
-
-
-
-
-
 </div>
 
 

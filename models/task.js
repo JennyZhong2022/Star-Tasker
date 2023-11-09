@@ -37,7 +37,7 @@ const taskSchema = new Schema({
       return new Date()
     }
   },
-  location: {
+  address: {
     type: String,
     required:true
   },
