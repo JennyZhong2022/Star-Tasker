@@ -60,6 +60,10 @@ font-family: 'Montserrat', sans-serif;
     
   }
 
+  .taskShowBox{
+    height: 46vh;
+  }
+
   /* This is to ensure that the card takes up the width of the taskShow div */
 .card.mb-3 {
     width: 100%; /* it will take the width provided by the taskShow container */

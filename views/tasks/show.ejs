@@ -8,15 +8,15 @@
 
 <div class="taskShow"> 
 <div class="card mb-3">
-  <div class="row g-0 row-equal-height">
-    <div class="col-md-4">
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+  <div class="row g-0 row-equal-height taskShowBox">
+    <div class="col-md-4 h-100">
+      <div id="carouselExample" class="carousel slide h-100">
+        <div class="carousel-inner h-100">
           <% if(task.images && task.images.length > 0) { %>
           <%  task.images.forEach((image,index)=>{  %>
-            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
-              <div class="imageContainerShow">
-              <img src="<%= image %>" class="img-fluid img-full-height rounded-start" alt="task-image">
+            <div class="carousel-item h-100 <%= index === 0 ? 'active' : '' %>">
+              <div class="imageContainerShow h-100">
+              <img src="<%= image %>" class=" rounded-start h-100" alt="task-image">
             </div>
             </div>             
             <%  })  %>
@@ -24,7 +24,7 @@
               <p>No images to display.</p>
             <% } %> 
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample h-100" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
@@ -48,7 +48,7 @@
           </form>
         <% } %>
       </div>
-      <div class="card-body d-flex flex-column">
+      <div class="card-body d-flex flex-column questionBox h-100 ">
         <h5 class="card-title"><%= task.title %></h5>
         <h6 class="card-title">
           <img src="/images/cash.png" alt="dollar-symbol" width="30" height="24"> <%= task.budget %>
@@ -87,41 +87,6 @@
 
 
 
-<!-- <div class="taskShow">
-  <div class="card mb-3">
-    <img src="/images/kitchen.jpg" class="card-img-top" alt="kitchen">
-    <div class="card-body">
-      <div class="btn-container">
-       
-        <% if(user?._id.equals(task.myPost)) { %>
-          <form action="/tasks/<%= task._id %>/edit" method="get">
-            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
-          </form>
-          <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-          </form>
-        <% } %>
-       
-        <% if(!task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){ %>
-          <form action="/tasks/my-accept-list/<%= task._id %>" method="POST">
-            <button type="submit" class="btn btn-primary btn-sm">Accept</button>
-          </form>
-        <% } %>
-        <% if(task.acceptedTasks.includes(user._id) && !task.myPost.equals(user._id)){ %>
-          <form action="/tasks/my-accept-list/<%= task._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-secondary btn-sm">Cancel Accept</button>
-          </form>
-        <% } %>
-      </div>
-      <h5 class="card-title"><%= task.title %></h5>
-      <p class="card-text"><%= task.details %></p>
-      <p class="card-text">
-        <small class="text-body-secondary">Posted at: <%= task.createdAt.toLocaleDateString() %></small>
-      </p>
-    </div>
-  </div>
-</div> -->
-
 
 
 <!--   question show-->
@@ -135,8 +100,12 @@
         </form>
       <% } %>
       <div class="card-body">
-        <p class="card-text"><img class="rounded-circle me-2" alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" style="width: 35px; height: 35px; object-fit: cover;">
-          <strong><%= question.userName %></strong><%= question.content %></p>
+        <dl class="row">
+        <dt class="col-sm-1"><img class="rounded-circle me-2" alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" style="width: 35px; height: 35px; object-fit: cover;">
+          <strong><%= question.userName %></strong>
+        </dt>
+        <dd class="col-sm-9"><%= question.content %></dd>
+      </dl>
         <div class="mt-4 d-flex justify-content-between">
           <small class="text-muted">Posted at: <%= question.createdAt.toLocaleDateString() %></small>
           <% if (user?._id.equals(question.user)) { %>
