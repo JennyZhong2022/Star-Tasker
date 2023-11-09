@@ -45,18 +45,25 @@
 
     <div class="mb-3">
       <label class="form-label">Current Images</label>
-      <div class="current-images">
+
+      <div class="row">
         <% if(task.images && task.images.length) { %>
           <% task.images.forEach(function(image) { %>
-            <div class="image-container">
-              <img src="<%= image %>" alt="Task Image" style="width: 100px; height: auto;"> <!-- Adjust the size as needed -->
+            <div class="col-6 col-md-4 text-center imageShow">
+              <div class="imageContainerEdit">
+              <img src="<%= image %>" alt="Task Image" > 
+            </div>
             </div>
           <% }) %>
         <% } else { %>
           <p>No images to display.</p>
         <% } %>
       </div>
-    
+    </div>
+
+   
+
+
   
     <div class="col-12">
       <label class="form-label">Budget </label>
@@ -66,10 +73,14 @@
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
+
   </form>
   
   </div>
   
+
+
+ 
   
   <%- include('../partials/footer') %>
   

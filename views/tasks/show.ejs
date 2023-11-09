@@ -15,7 +15,9 @@
           <% if(task.images && task.images.length > 0) { %>
           <%  task.images.forEach((image,index)=>{  %>
             <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+              <div class="imageContainerShow">
               <img src="<%= image %>" class="img-fluid img-full-height rounded-start" alt="task-image">
+            </div>
             </div>             
             <%  })  %>
             <% } else { %>
