@@ -5,7 +5,7 @@
   <div class="h1Container"><h2>Post Your Post</h2></div>
 
 <!-- enctype="multipart/form-data"  this is for uploading images -->
-<form action='/tasks' method="post" class="row g-3"   >
+<form action='/tasks' enctype="multipart/form-data"  method="post" class="row g-3"   >
   <div class="col-md-6">
     <label class="form-label">Title</label>
     <input type="text" name="title" required class="form-control" id="inputEmail4">
@@ -45,10 +45,10 @@
     <textarea name="details" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 
-  <!-- <div class="mb-3">
+  <div class="mb-3">
     <label class="form-label">Image</label>
-    <input name="image" class="form-control" type="file" id="formFileMultiple" multiple>
-  </div> -->
+    <input name="image" class="form-control" type="file" id="formFileMultiple">
+  </div>
 
   <div class="col-12">
     <label class="form-label">Budget </label>

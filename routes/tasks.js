@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const taskController = require('../controllers/tasks')
 const isAuthenticated = require('../config/ensureLoggedIn');
+const upload=require('../utilities/multer')
 
 /* GET users listing. */
 router.get('/',isAuthenticated,taskController.index);
@@ -17,7 +18,7 @@ router.get('/searched-tasks',taskController.searchedTasks)
 // GET /tasks/:id (show functionality) MUST be below new route
 router.get('/:id', isAuthenticated,taskController.show)
 
-router.post('/', isAuthenticated,taskController.create)
+router.post('/', isAuthenticated,upload.single('image'), taskController.create)
 
 router.delete('/:id',taskController.delete)
 

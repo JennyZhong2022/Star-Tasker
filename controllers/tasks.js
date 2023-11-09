@@ -1,4 +1,5 @@
 const Task = require('../models/task');
+const cloudinary= require('../utilities/cloudinary')
 
 const index = async(req,res)=> {
   try {
@@ -29,7 +30,8 @@ const newTask = (req,res) => {
 
 const create = async (req, res) => {
   try {
-    const task = await Task.create({ ...req.body, myPost: req.user._id })
+    const result=await cloudinary.uploader.upload(req.file.path)
+    const task = await Task.create({ ...req.body, myPost: req.user._id, image: result.secure_url,cloudinary_id:result.public_id})
     res.redirect(`/tasks/${task._id}`)
   } catch (error) {
     console.log(error);
