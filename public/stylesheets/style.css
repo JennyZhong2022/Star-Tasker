@@ -1,7 +1,7 @@
 html{
-  padding: 0;
   margin: 0;
   box-sizing: border-box;
+  padding-bottom: 5rem;
 }
 
 body {
@@ -71,7 +71,8 @@ font-family: 'Montserrat', sans-serif;
 
 .search-container {
   max-width: 400px; 
-  margin-left:auto; 
+  margin: 0 auto;
+
 }
 
 .review-user {
@@ -137,4 +138,15 @@ font-family: 'Montserrat', sans-serif;
   bottom: 10px; /* Adjust as needed */
   right: 10px; /* Adjust as needed */
   z-index: 2; /* Ensures the buttons stay on top of other content */
+}
+
+.questionShow{
+  position: relative;
+  height: 8rem;
+  overflow-y: auto;
+  /* Enables vertical scrollbar when needed */
+}
+
+.card-text{
+ width: 90%;
 }

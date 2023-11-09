@@ -4,6 +4,8 @@
 
 <section >
 
+<!-- taskshow -->
+
 
 
 <div class="taskShow"> 
@@ -100,54 +102,37 @@
 
 
 
-<div class="questionContainer">
+<!--   question show-->
 
-<%if(task.questions.length){  %>
-  <table>
-    <thead>
-    <tr>
-    <th>User</th>
-    <th>Date</th>
-    <th>Questions</th>      
-    </tr>     
-    </thead>
-    <tbody>
-     
-    <% task.questions.forEach(function(question) { %>
-        <tr>
-          <td class="review-user"><img alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" ><%= question.userName %></td>
-          <td><%= question.createdAt.toLocaleDateString() %></td>
-          <td><%= question.content %></td>
-
-          <td>
-            <% if (user?._id.equals(question.user)) { %>
-              <form action="/questions/<%= question._id %>/edit">
-                <button type="submit">Edit</button>
-              </form>
-            <% } %>
-          </td>
-
-          
-          <td>
-            <% if (user?._id.equals(question.user)) { %>
-              <form action="/questions/<%= question._id %>?_method=DELETE" method="POST">
-                <button type="submit">&times;</button>
-              </form>
-            <% } %>
-          </td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table> 
-  <%}  %>
-
-</div>
-
-   
-   
+<% if (task.questions.length) { %>
+  <% task.questions.forEach(function(question) { %>
+    <div class="card w-75 mb-3 questionShow" >
+      <% if (user?._id.equals(question.user)) { %>
+        <form action="/questions/<%= question._id %>?_method=DELETE" method="POST" class="position-absolute top-0 end-0 mt-2 me-2">
+          <button type="submit"  class="btn-close btn-sm" aria-label="Close"></button>
+        </form>
+      <% } %>
+      <div class="card-body">
+        <p class="card-text"><img class="rounded-circle me-2" alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" style="width: 35px; height: 35px; object-fit: cover;">
+          <strong><%= question.userName %></strong><%= question.content %></p>
+        <div class="mt-4 d-flex justify-content-between">
+          <small class="text-muted">Posted at: <%= question.createdAt.toLocaleDateString() %></small>
+          <% if (user?._id.equals(question.user)) { %>
+            <form action="/questions/<%= question._id %>/edit" method="get" style="display: inline;">
+              <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+            </form>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  <% }); %> 
+<% } %>
 
 
 
+
+
+<!-- ask question  -->
 
 <div class="questionContainer">
 
