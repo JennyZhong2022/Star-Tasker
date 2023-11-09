@@ -18,6 +18,8 @@ a {
   justify-content: center;
   align-items: center;
   height: 34px;
+  color: black;
+  padding-right: 1rem;
 }
 
 .login img {
@@ -58,10 +60,14 @@ font-family: 'Montserrat', sans-serif;
     justify-content: center; 
     align-items: center; 
     
+    
   }
 
   .taskShowBox{
     height: 46vh;
+    overflow-y: auto;
+    
+    
   }
 
   /* This is to ensure that the card takes up the width of the taskShow div */
@@ -191,3 +197,17 @@ font-family: 'Montserrat', sans-serif;
   object-fit: cover;
 }
 
+
+.img-contain {
+  object-fit: contain; /* Contain the image within the element, preserving aspect ratio */
+  width: 100%;
+  height: 100%; 
+}
+
+.no-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+  font-size: 1rem; 
+}
