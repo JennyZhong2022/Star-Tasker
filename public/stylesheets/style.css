@@ -52,7 +52,7 @@ font-family: 'Montserrat', sans-serif;
 
 .taskShow {
     padding-top: 2rem;
-    max-width: 80%; 
+    max-width: 90%; 
     margin: auto; /* this will center the div horizontally */
     display: flex; 
     justify-content: center; 

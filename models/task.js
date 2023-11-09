@@ -45,13 +45,11 @@ const taskSchema = new Schema({
     type: String,
     required: true
   },
-  image: {
+  images: [{
     type: String,
     default: ''
-  },
-  cloudinary_id: {
-    type: String,
-  },
+  }],
+  cloudinary_id: [{ type: String }],
   questions: [questionSchema],
   budget: {
     type: Number,

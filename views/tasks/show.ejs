@@ -6,14 +6,35 @@
 
 <!-- taskshow -->
 
-
-
 <div class="taskShow"> 
 <div class="card mb-3">
   <div class="row g-0 row-equal-height">
     <div class="col-md-4">
-      <img src="<%= task.image %>" class="img-fluid img-full-height rounded-start" alt="task-image"> 
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% if(task.images && task.images.length > 0) { %>
+          <%  task.images.forEach((image,index)=>{  %>
+            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+              <img src="<%= image %>" class="img-fluid img-full-height rounded-start" alt="task-image">
+            </div>             
+            <%  })  %>
+            <% } else { %>
+              <p>No images to display.</p>
+            <% } %> 
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
     </div>
+
+
     <div class="col-md-8">
       <div class="edit-delete-btns">
         <% if(user?._id.equals(task.myPost)) { %>
@@ -138,7 +159,9 @@
 <form action="/tasks/<%= task._id %>/questions" method="POST">
   <div class="mb-3">
     <label class="form-label">Questions</label>
-    <textarea class="form-control"  name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control"  name="content" id="exampleFormControlTextarea1"
+    required
+    rows="3"></textarea>
   </div>
   <button type="submit"  class="btn btn-primary btn-question">Ask question</button>
 </form>
