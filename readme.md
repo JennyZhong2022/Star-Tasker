@@ -15,12 +15,16 @@ Star Tasker is a web application that allows users to manage tasks with a focus 
 
 ## Built With
 
+## Built With
+
+
+- [Express.js](https://expressjs.com/) - The web framework for Node.js (generated with `npx express-generator -e`).
 - [Node.js](https://nodejs.org/en/) - The JavaScript runtime used.
-- [Express.js](https://expressjs.com/) - The web application framework.
 - [MongoDB](https://www.mongodb.com/) - The NoSQL database used for storing data.
 - [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for Node.js.
 - [Cloudinary](https://cloudinary.com/) - Cloud-based image and video management service.
 - [Multer](https://www.npmjs.com/package/multer) - Middleware for handling `multipart/form-data`.
+- [Bootstrap](https://getbootstrap.com/) - Extensive list of components and Bundled Javascript plugins.
 
 ## Screenshots
 
