@@ -102,7 +102,7 @@
       <div class="card-body">
         <dl class="row">
         <dt class="col-sm-1"><img class="rounded-circle me-2" alt="avatar" src="<%= question.userAvatar %>" referrerpolicy="no-referrer" style="width: 35px; height: 35px; object-fit: cover;">
-         <%= question.userName %>
+         <!-- <%= question.userName %> -->
         </dt>
         <dd class="col-sm-9"><%= question.content %></dd>
       </dl>
@@ -125,7 +125,7 @@
 
 <!-- ask question  -->
 
-<div class="questionContainer">
+<div class="container questionContainer">
 
 <form action="/tasks/<%= task._id %>/questions" method="POST">
   <div class="mb-3">

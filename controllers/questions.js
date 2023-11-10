@@ -3,7 +3,7 @@ const Task = require('../models/task');
 const create = async(req,res) => {
   const task = await Task.findById(req.params.id)
   req.body.user = req.user._id;
-  req.body.UserName=req.user.name
+  req.body.userName=req.user.name
   req.body.userAvatar = req.user.avatar
   task.questions.push(req.body)
   try { 
